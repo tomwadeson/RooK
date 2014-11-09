@@ -1,7 +1,18 @@
 apply plugin: 'java'
 apply plugin: 'application'
-
 apply plugin: 'eclipse'
+apply plugin: 'com.github.johnrengelman.shadow'
+
+buildscript {
+    repositories { 
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.github.jengelman.gradle.plugins:shadow:1.1.1'
+  }
+}
+
+mainClassName = 'io.tew88.rook.RookApplication'
 
 version = theVersion
 sourceCompatibility = theSourceCompatibility
@@ -15,7 +26,16 @@ repositories {
 }
 
 dependencies {
-    compile "io.dropwizard:dropwizard-core:${ dropwizardVersion }"
+    compile "io.dropwizard:dropwizard-core:${ dropwizardVersion }",
+            "io.dropwizard:dropwizard-migrations:${ dropwizardVersion }",
+            "io.dropwizard:dropwizard-jdbi:${ dropwizardVersion }",
+            'com.h2database:h2:1.4.180'
 
     testCompile 'junit:junit:4.11'
+}
+
+jar {
+    manifest {
+        attributes 'Main-Class': mainClassName
+    }
 }
