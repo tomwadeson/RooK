@@ -7,13 +7,11 @@ public class User {
     private int id;
     private String name;
     private String email;
-    private String passwordHash;
     
-    public User(final int id, final String name, final String email, final String passwordHash) {
+    public User(final int id, final String name, final String email) {
         this.id = id;
         this.name = name;
         this.email = email;
-        this.passwordHash = passwordHash;
     }
     
     public User() {
@@ -32,10 +30,5 @@ public class User {
     @JsonProperty
     public String getEmail() {
         return email;
-    }
-    
-    @JsonProperty
-    public String getPasswordHash() {
-        return passwordHash;
     }
 }

@@ -50,7 +50,7 @@ public class UserResource {
     @Path("/")
     @Consumes(MediaType.APPLICATION_JSON)
     public Response addUser(User user) throws URISyntaxException {
-        final long result = userDao.persist(user.getName(), user.getEmail(), user.getPasswordHash());
+        final long result = userDao.persist(user.getName(), user.getEmail());
         return Response.created(new URI("/user/" + result)).build();
     }
     
@@ -59,7 +59,7 @@ public class UserResource {
     @Path("/")
     @Consumes(MediaType.APPLICATION_JSON)
     public Response deleteUser(User user) {
-        userDao.remove(user.getId(), user.getName(), user.getEmail(), user.getPasswordHash());
+        userDao.remove(user.getId(), user.getName(), user.getEmail());
         return Response.ok().build();
     }
 }
