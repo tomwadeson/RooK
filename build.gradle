@@ -3,9 +3,19 @@ apply plugin: 'application'
 
 apply plugin: 'eclipse'
 
+version = theVersion
+sourceCompatibility = theSourceCompatibility
+
+ext {
+    dropwizardVersion = '0.7.1'
+}
+
 repositories {
     mavenCentral()
 }
 
 dependencies {
+    compile "io.dropwizard:dropwizard-core:${ dropwizardVersion }"
+
+    testCompile 'junit:junit:4.11'
 }
