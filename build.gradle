@@ -29,7 +29,7 @@ dependencies {
     compile "io.dropwizard:dropwizard-core:${ dropwizardVersion }",
             "io.dropwizard:dropwizard-migrations:${ dropwizardVersion }",
             "io.dropwizard:dropwizard-jdbi:${ dropwizardVersion }",
-            'com.h2database:h2:1.4.180'
+            'com.h2database:h2:1.4.182'
 
     testCompile 'junit:junit:4.11'
 }
