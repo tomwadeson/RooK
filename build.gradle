@@ -29,9 +29,11 @@ dependencies {
     compile "io.dropwizard:dropwizard-core:${ dropwizardVersion }",
             "io.dropwizard:dropwizard-migrations:${ dropwizardVersion }",
             "io.dropwizard:dropwizard-jdbi:${ dropwizardVersion }",
+            "io.dropwizard:dropwizard-testing:${ dropwizardVersion }",
             'com.h2database:h2:1.4.182'
 
-    testCompile 'junit:junit:4.11'
+    testCompile 'junit:junit:4.11',
+                'org.assertj:assertj-core:1.7.0'
 }
 
 jar {
