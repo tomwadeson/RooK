@@ -47,7 +47,6 @@ public class UserResource {
     }
     
     @POST
-    @Path("/")
     @Consumes(MediaType.APPLICATION_JSON)
     public Response addUser(User user) throws URISyntaxException {
         final long result = userDao.persist(user.getName(), user.getEmail());
@@ -56,7 +55,6 @@ public class UserResource {
     
     
     @DELETE
-    @Path("/")
     @Consumes(MediaType.APPLICATION_JSON)
     public Response deleteUser(User user) {
         userDao.remove(user.getId(), user.getName(), user.getEmail());
